@@ -6,20 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Business Website</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Locomotive Scroll CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css">
+
     <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector("[data-scroll-container]"),
+                smooth: true,
+                smartphone: {
+                    smooth: false // Disables smooth scroll on mobile
+                },
+                tablet: {
+                    smooth: false
+                }
+            });
+
+            // Refresh Locomotive Scroll when resizing
+            window.addEventListener("resize", () => {
+                scroll.update();
+            });
+        });
+    </script>
+
+
+
 </head>
-<body>
+
+<body data-scroll-container>
     <!-- Hero Section -->
-    <section class="hero" id="home" style="display: flex;">
+    <section class="hero" id="home" style="display: flex;" data-scroll-section>
         <nav>
-            
             <div class="logo" style="align-items: start;">
-                
-                
                 <span style="font-size: larger;font-weight: 500;font-family: 'Brittany Signature', sans-serif;">Vijay CA</span>
-            
             </div>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -35,13 +59,13 @@
             <button class="cta-button">Get Started</button>
         </div>
         <div class="hero-image">
-            <img src="bg5.png" alt="Hero Image">
+            <img src="bg5.webp" alt="Hero Image">
         </div>
         
     </section>
 
     <!-- Cards Section -->
-    <section class="cards" id="services">
+    <section class="cards" id="services" data-scroll-section>
         <div class="card animate-on-scroll">
             <h3>Building Your Site</h3>
             <p>Create stunning, responsive websites that captivate your audience. Our expert team ensures your site stands out with modern design and seamless functionality.</p>
@@ -60,7 +84,7 @@
     </section>
 
     <!-- Style Section -->
-    <section class="style-section">
+    <section class="style-section" data-scroll-section>
         <h2>Ship sites with style.</h2>
         <p>Experience the best in class features that set your business apart</p>
         <div class="button-group">
@@ -70,7 +94,7 @@
     </section>
 
     <!-- Journey Section -->
-    <section class="journey-section">
+    <section class="journey-section" data-scroll-section>
         <div class="journey-path">
             <div class="step">
                 <i class="fas fa-calendar-check"></i>
@@ -95,7 +119,7 @@
     </section>
 
     <!-- Contact and Map Section -->
-    <section class="contact-map" id="contact">
+    <section class="contact-map" id="contact" data-scroll-section>
         <div class="contact-form">
             <h3>Contact Us</h3>
             <form>
@@ -124,7 +148,7 @@
     </section>
 
     <!-- Trusted By Section -->
-    <section class="trusted-by">
+    <section class="trusted-by" data-scroll-section>
         <h3>Trusted by Industry Leaders</h3>
         <div class="logo-container">
             <img src="https://via.placeholder.com/150x50?text=Logo+1" alt="Company 1">

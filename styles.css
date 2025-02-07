@@ -85,7 +85,7 @@ nav a:hover::after {
     width: 57rem;
     height: 62rem;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(203,9,227,0.08) 0%, rgba(0,184,148,0.05) 70%);
+    background: radial-gradient(circle, rgba(203,9,227,0.08) 0%, rgb(0 184 148 / 8%) 70%);
     top: -20%;
     left: -12%;
     animation: float 20s infinite alternate ease-in-out;
