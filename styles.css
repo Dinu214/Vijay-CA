@@ -120,6 +120,7 @@ nav a:hover::after {
 .hero-image {
     position: relative;
     z-index: 1;
+    bottom: 0;
     display: flex;
     background-color: transparent;
     justify-content: center;
