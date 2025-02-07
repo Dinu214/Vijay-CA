@@ -184,7 +184,7 @@ nav a:hover::after {
     
     .hero-image {
         max-width: 80%;
-        margin: 0 auto;
+        margin: 0;
     }
 }
 
