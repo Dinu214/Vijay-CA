@@ -170,7 +170,7 @@ nav a:hover::after {
     .hero {
         grid-template-columns: 1fr;
         text-align: center;
-        padding: 6rem 5% 3rem;
+        padding: 6rem 5% 0;
     }
     
     .hero-content {
