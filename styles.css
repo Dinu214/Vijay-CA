@@ -132,6 +132,7 @@ nav a:hover::after {
 .hero-image img {
     margin-top: 0%;
     height: 48rem;
+    margin-bottom: 0%;
     margin-left: -5%;
     border-radius: 51% 49% 10% 10% / 67% 67% 0% 0% ;
     transition: transform 0.3s ease;
@@ -170,7 +171,7 @@ nav a:hover::after {
     .hero {
         grid-template-columns: 1fr;
         text-align: center;
-        padding: 6rem 5% 0;
+        padding: 6rem 5%;
     }
     
     .hero-content {
