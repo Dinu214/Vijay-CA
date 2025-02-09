@@ -12,8 +12,9 @@
     <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+    
+    <link href="https://fonts.cdnfonts.com/css/silka" rel="stylesheet">
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const scroll = new LocomotiveScroll({
@@ -34,6 +35,245 @@
         });
     </script>
 
+<style>
+    /* Testimonial Slider Styles */
+    .slider-container {
+        font-family: "silka";
+        margin-bottom: 2rem;
+        width: 100%;
+        height: 48rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        display: flex;
+        padding: 0;
+    }
+
+    .slide.active {
+        opacity: 1;
+    }
+
+    .slide:nth-child(1) { background: var(--secondary-color); }
+    .slide:nth-child(2) { background: #4B0082; }
+    .slide:nth-child(3) { background: var(--accent-color); }
+    .slide:nth-child(4) { background: #8B0000; }
+
+    .slide-image {
+        flex: 1;
+        z-index: 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide-content {
+        flex: 1;
+        padding: 2rem;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .testimonial {
+        font-size: 3.0rem;
+        line-height: 1.4;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease-out 0.3s;
+    }
+
+    .slide.active .testimonial {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .navigation {
+        position: absolute;
+        bottom: 2rem;
+        right: 10rem;
+        display: flex;
+        gap: 3.5rem;
+    }
+
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .nav-button img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .nav-button.active {
+        background-color: wheat;
+        border-color: white;
+        transform: scale(1.1);
+    }
+
+    .nav-label {
+        color: white;
+        font-size: 0.875rem;
+        text-align: center;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-subtitle {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.75rem;
+        text-align: center;
+    }
+
+    .testimonials-section {
+        padding: 0;
+        /* margin-top: 1%; */
+        background: var(--background-color);
+    }
+
+    .footer {
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        color: white;
+        padding: 4rem 0;
+        font-family: 'Silka', sans-serif;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+    }
+
+    .footer-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-heading {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .footer-heading::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.5rem;
+        width: 50px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-content {
+        line-height: 1.8;
+        font-size: 1rem;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+        transform: translateX(5px);
+    }
+
+    .contact-item i {
+        width: 24px;
+        margin-right: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        color: white;
+        text-decoration: none;
+    }
+
+    .social-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .footer-heading::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contact-item {
+            justify-content: center;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+    }
+</style>
+
 
 
 </head>
@@ -43,20 +283,21 @@
     <section class="hero" id="home" style="display: flex;" data-scroll-section>
         <nav>
             <div class="logo" style="align-items: start;">
-                <span style="font-size: larger;font-weight: 500;font-family: 'Brittany Signature', sans-serif;">Vijay CA</span>
+                <!-- <spam><img src="VC-logo.png"></spam> -->
+                <span style="cursor: pointer;font-size: larger;font-weight: 500;font-family: 'Brittany Signature', sans-serif;">Vijay CA</span>
             </div>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Invite</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li style="cursor: pointer;"><a>Home</a></li>
+                <li style="cursor: pointer;"><a>About</a></li>
+                <li style="cursor: pointer;"><a>Invite</a></li>
+                <li style="cursor: pointer;"><a>Contact</a></li>
             </ul>
         </nav>
         
         <div class="hero-content">
             <h1 class="animate-text">Life Coach & Motivator</h1>
-            <p class="animate-text-delay">Transform your digital presence with our innovative solutions</p>
-            <button class="cta-button">Get Started</button>
+            <p class="animate-text-delay">Transform your mindset, achieve success, and live a fulfilling life with expert guidance.</p>
+            <button class="cta-button">Get in touch</button>
         </div>
         <div class="hero-image">
             <img src="bg5.webp" alt="Hero Image">
@@ -67,31 +308,149 @@
     <!-- Cards Section -->
     <section class="cards" id="services" data-scroll-section>
         <div class="card animate-on-scroll">
-            <h3>Building Your Site</h3>
-            <p>Create stunning, responsive websites that captivate your audience. Our expert team ensures your site stands out with modern design and seamless functionality.</p>
+            <h3>Personal Growth Coaching</h3>
+            <p>Build confidence, overcome fears, and unlock your full potential to create a more fulfilling and empowered life.</p>
             <button>Learn More</button>
         </div>
         <div class="card animate-on-scroll">
-            <h3>Services for Life</h3>
-            <p>Comprehensive solutions that grow with your business. From maintenance to updates, we provide ongoing support to keep your digital presence strong.</p>
+            <h3>Career & Success</h3>
+            <p>Find purpose, align with your IKIGAI, set clear goals, and take actionable steps toward career success and long-term professional growth.</p>
             <button>Learn More</button>
         </div>
         <div class="card animate-on-scroll">
-            <h3>CRM Overview</h3>
-            <p>Streamline your customer relationships with our powerful CRM solutions. Track, manage, and improve customer interactions all in one place.</p>
+            <h3>Relationship & Communication Skills</h3>
+            <p>Improve relationships, master the art of effective communication, and build deeper, more meaningful connections.</p>
             <button>Learn More</button>
         </div>
     </section>
 
+    
+
+
     <!-- Style Section -->
     <section class="style-section" data-scroll-section>
-        <h2>Ship sites with style.</h2>
-        <p>Experience the best in class features that set your business apart</p>
+        <video autoplay muted loop playsinline>
+            <source src="ocean.mp4" type="video/mp4">
+        </video>
+        <h2>Be vast , Be limitless</h2>
+        <p>Water doesn’t resist it simply finds its way. So should we in life.</p>
         <div class="button-group">
             <button class="primary-btn">Get Started</button>
             <button class="secondary-btn">Learn More</button>
         </div>
     </section>
+    
+    <!-- raw Section -->
+    <section class="raw" data-scroll-section>
+        <h2 style="color: black;">Embrace your thoughts & Be Unstoppable</h2>
+    </section>
+
+
+    <!-- div Section -->
+    <section class="div-section" data-scroll-section>
+        <div class="container">
+            <div class="card orange-card">
+                <h2 style="font-size: 1.7rem;">Discover Your True Potential</h2>
+                <p>guidence for tapping into your inner strength</p>
+                <!-- <a href="#" class="btn">Get the App</a> -->
+                <img src="discover.webp" alt="Delivery Image">
+            </div>
+            <div class="card medium-card">
+                <h2 style="z-index: 1;">Create Lasting Change</h2>
+                <p>creating lasting habits</p>
+                <img src="arrow.webp" alt="Checkout Image">
+            </div>
+            <div class="card small-card">
+                <h2>Achieve Clarity and Focus</h2>
+                <p>Clear the noise, find your purpose</p>
+                <img src="ikigai.webp" alt="Discount Image">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" data-scroll-section>
+        <div class="slider-container">
+            <div class="slide active">
+                <div class="slide-image">
+                    <img src="bill2.webp" alt="Success Story 1" class="hero-image">
+                </div>
+                <div class="slide-content">
+                    <div class="testimonial">
+                        "Everyone needs a coach. It doesn't matter whether you're a basketball player, a tennis player, a gymnast, or a bridge player."
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="sachin2.webp" alt="Success Story 2" class="hero-image">
+                </div>
+                <div class="slide-content">
+                    <div class="testimonial">
+                        "A champion team needs only a small window of opportunity to stage a fightback, something I had learnt over the years."
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="albert.webp" alt="Success Story 3" class="hero-image">
+                </div>
+                <div class="slide-content">
+                    <div class="testimonial">
+                        "The world is a dangerous place to live; not because of the people who are evil, but because of the people who don't do anything about it."
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="abdul.webp" alt="Success Story 4" class="hero-image">
+                </div>
+                <div class="slide-content">
+                    <div class="testimonial">
+                        "Thinking should become your capital asset, no matter whatever ups and downs you come across in your life."
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <div class="nav-item">
+                    <div class="nav-button active" >
+                        <img src="bill-gates.webp" alt="Nav 1">
+                    </div>
+                    <div class="nav-label">Bill Gates</div>
+                    <div class="nav-subtitle">Former CEO of Microsoft</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-button">
+                        <img src="sachin.webp" alt="Nav 2">
+                    </div>
+                    <div class="nav-label">Sachin Tendulkar</div>
+                    <div class="nav-subtitle">Greatest Cricketer</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-button">
+                        <img src="albert.webp" alt="Nav 3">
+                    </div>
+                    <div class="nav-label">Albert Einstein</div>
+                    <div class="nav-subtitle">Theoretical physicist</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-button">
+                        <img src="abdul.webp" alt="Nav 4">
+                    </div>
+                    <div class="nav-label">Dr. Abdul Kalam</div>
+                    <div class="nav-subtitle">Former President of India</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="raw" data-scroll-section>
+        <h2 style="color: black;">Don't wait for change</h2>
+    </section>
+
 
     <!-- Journey Section -->
     <section class="journey-section" data-scroll-section>
@@ -137,27 +496,117 @@
         </div>
         <div class="map">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s150%20Park%20Row%2C%20New%20York%2C%20NY%2010007!5e0!3m2!1sen!2sus!4v1580150827791!5m2!1sen!2sus"
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy">
-            </iframe>
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d69.69789196437341!3d23.233489960063853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDEzJzU0LjUiTiA2OcKwNDEnNTIuNCJF!5e0!3m2!1sen!2sus!4v1580150827791!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+</iframe>
+
+
         </div>
     </section>
 
-    <!-- Trusted By Section -->
-    <section class="trusted-by" data-scroll-section>
-        <h3>Trusted by Industry Leaders</h3>
-        <div class="logo-container">
-            <img src="https://via.placeholder.com/150x50?text=Logo+1" alt="Company 1">
-            <img src="https://via.placeholder.com/150x50?text=Logo+2" alt="Company 2">
-            <img src="https://via.placeholder.com/150x50?text=Logo+3" alt="Company 3">
-            <img src="https://via.placeholder.com/150x50?text=Logo+4" alt="Company 4">
+    
+    <footer class="footer" data-scroll-section>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-heading">About Vijay CA</h3>
+                <div class="footer-content">
+                    <p>Dedicated to transforming lives through expert guidance and motivation. With years of experience in personal development and life coaching, I'm here to help you unlock your full potential.</p>
+                </div>
+            </div>
+    
+            <div class="footer-section">
+                <h3 class="footer-heading">Contact Info</h3>
+                <div class="footer-content">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>coach@vijayca.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Success Street, Mumbai, India</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-section" style="margin-left: 2rem;">
+                <h3 class="footer-heading">Quick Links</h3>
+                <div class="footer-content">
+                    <div class="contact-item">
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Home</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-chevron-right"></i>
+                        <span>About</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Services</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Contact</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-section">
+                <h3 class="footer-heading">Connect With Me</h3>
+                <div class="footer-content">
+                    <p>Follow me on social media for daily inspiration and updates on upcoming workshops.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 Vijay CA - Life Coach & Motivator. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const navButtons = document.querySelectorAll('.nav-button');
+
+        function setActiveSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            navButtons.forEach(button => button.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            navButtons[index].classList.add('active');
+        }
+
+        navButtons.forEach((button, index) => {
+            button.addEventListener('click', () => setActiveSlide(index));
+        });
+
+        let currentSlide = 0;
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            setActiveSlide(currentSlide);
+        }, 5000);
+    </script>
 </body>
 </html>
