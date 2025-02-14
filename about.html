@@ -3,104 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Inspire - Motivational Speaker</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+
+    <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+
+
+    <script src="coach.js"></script>
+
+    <link rel="stylesheet" href="about.css">
+
+    
+    <link href="https://fonts.cdnfonts.com/css/silka" rel="stylesheet">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector("[data-scroll-container]"),
+                smooth: true,
+                smartphone: {
+                    smooth: false // Disables smooth scroll on mobile
+                },
+                tablet: {
+                    smooth: false
+                }
+            });
+
+            // Refresh Locomotive Scroll when resizing
+            window.addEventListener("resize", () => {
+                scroll.update();
+            });
+        });
+    </script>
+
+    <title>Vijay CA</title>
+    <link rel="icon" type="image/png" href="VC-logo.png">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Navbar background change on scroll
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                }
+            });
+        });
+    </script>
+
+    <style>
+
+.naav {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 8%;
+    background: linear-gradient(135deg, rgba(220, 4, 4, 0.02) 0%, rgba(0,0,0,0.05) 100%);
+    position: relative;
+  
+}
+    </style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="logo">INSPIRE</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
-            <a href="invite.html">Invite</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
 
-    <header class="page-header">
-        <div class="header-content" data-aos="fade-up">
-            <h1>About Me</h1>
-            <p>Inspiring change through powerful words and actionable insights</p>
-        </div>
-    </header>
 
-    <main>
-        <section class="about-story" data-aos="fade-up">
-            <div class="story-content">
-                <h2>My Journey</h2>
-                <p>With over a decade of experience in motivational speaking, I've had the privilege of touching thousands of lives across the globe. My journey began with a simple belief: everyone has the potential to achieve greatness.</p>
-                <p>Through personal struggles and triumphs, I've developed a unique approach to personal development that combines practical strategies with emotional intelligence.</p>
-            </div>
-            <div class="story-image" data-aos="fade-left">
-                <img src="images/speaker.jpg" alt="Motivational Speaker">
-            </div>
-        </section>
+<body data-scroll-container>
+    
 
-        <section class="achievements" data-aos="fade-up">
-            <h2>Achievements</h2>
-            <div class="achievement-grid">
-                <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>1000+</h3>
-                    <p>Speaking Engagements</p>
-                </div>
-                <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>50+</h3>
-                    <p>Countries Visited</p>
-                </div>
-                <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
-                    <h3>100K+</h3>
-                    <p>Lives Impacted</p>
-                </div>
+    <section class="naav" data-scroll-section>
+        <nav style="z-index: 1000;height: 70px;">
+            <div class="logo" style="align-items: start;">
+                <span style="cursor: pointer;font-size: larger;font-weight: 500;font-family: 'Brittany Signature', sans-serif;">Vijay CA</span>
             </div>
-        </section>
+            <ul>
+                <li style="cursor: pointer;"><a href="index.html">Home</a></li>
+                <li style="cursor: pointer;"><a href="about.html">About</a></li>
+                <li style="cursor: pointer;"><a href="invite.html">Invite</a></li>
+                <li style="cursor: pointer;"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </section>
 
-        <section class="philosophy" data-aos="fade-up">
-            <h2>My Philosophy</h2>
-            <div class="philosophy-content">
-                <div class="philosophy-item" data-aos="fade-right">
-                    <h3>Authenticity</h3>
-                    <p>True change comes from embracing who you really are and building upon your unique strengths.</p>
-                </div>
-                <div class="philosophy-item" data-aos="fade-left">
-                    <h3>Action</h3>
-                    <p>Knowledge without action is meaningless. I believe in providing practical steps for real transformation.</p>
-                </div>
-                <div class="philosophy-item" data-aos="fade-right">
-                    <h3>Growth</h3>
-                    <p>Life is a journey of continuous learning and improvement. Every challenge is an opportunity to grow.</p>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: contact@inspire.com</p>
-                <p>Phone: (555) 123-4567</p>
+    <!--about-->
+    <section class="container" style="padding: 0 2rem;margin-top:5rem;" data-scroll-section>
+
+        <div class="grid">
+            <div class="image-container">
+                <img src="bg2.jpg" alt="Life coach speaking" class="main-image">
             </div>
-            <div class="footer-section">
-                <h3>Follow</h3>
-                <div class="social-links">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
-                    <a href="#" class="social-link">Instagram</a>
+            <div class="content" style="margin-left: 2rem;">
+                <div class="header">
+                    <h1>I'm Vijay Thakkar</h1>
+                    <p>Life coach and Motivator with a passion for helping people achieve their full potential.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-thumbnail">
+                        <img src="v3.jpg" alt="Group coaching session">
+                    </div>
+                    <div class="program-info">
+                        <h3>Vijay CA : Life Coach & Motivator</h3>
+                        <p>to achieve personal and financial goals </p>
+                    </div>
+                 
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <p>Guided CA students</p>
+                        <p>5000+</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>Motivational Seminar of</p>
+                        <p>10k+ devotees</p>
+                    </div>
+                </div>
+                <div class="connect-section">
+                    <p>Get in touch</p>
+                    <div class="social-buttons">
+                        <button class="social-button facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </button>
+                        <button class="social-button instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </button>
+                        <button class="social-button whatsapp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </button>
+                        <button class="social-button mail">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Inspire. All rights reserved.</p>
-        </div>
-    </footer>
+    </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/main.js"></script>
+
+<section class="hero" data-scroll-section>
+    <div class="hero-content">
+            <p class="hero-text">
+                We believe that transforming lives should be an enjoyable and empowering experience. As your dedicated life coach, I bring years of expertise and deep understanding to help you unlock your full potential. With personalized guidance and unwavering support, we'll work together to make your journey of personal growth seamless and fulfilling.
+            </p>
+        </div>
+    </section>
+
+
+    <section class="services-section" data-scroll-section>
+        <div class="services">
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-icon personal-growth">
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <h3>Personal Growth</h3>
+                <p>With extensive experience in personal development, we understand what it takes to help you reach your highest potential.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon mindset-coaching">
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                    </svg>
+                </div>
+                <h3>Mindset Coaching</h3>
+                <p>We create powerful strategies that transform your mindset and help you achieve breakthrough results in life.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon support">
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                    </svg>
+                </div>
+                <h3 style="margin-bottom: 1%;">24/7 Spiritual Growth & Peace</h3>
+                <p>Guide you on your journey toward inner peace, mindfulness, and spiritual growth, offering support whenever you need it most.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="gallery-container" data-scroll-section>
+        <div class="gallery-layout">
+            <section class="featured-section">
+                <img src="bg3.jpg" alt="Featured Coaching Session">
+            </section>
+            <section class="gallery-content">
+                <div class="gallery-header">
+                    <h2>Guiding Minds in <br>Finance, Accounting & Trading</h2>
+                    <div class="navigation">
+                        <button class="nav-btn prev" aria-label="Previous">&larr;</button>
+                        <button class="nav-btn next" aria-label="Next">&rarr;</button>
+                    </div>
+                </div>
+                
+                <div class="slides-container active">
+                    <div class="slide">
+                        <img src="bg/2.png" alt="Group Workshop">
+                    </div>
+                    <div class="slide">
+                        <img src="bg/3.png" alt="One-on-One Session">
+                    </div>
+                </div>
+                <p class="gallery-description">
+                    A Chartered Accountant with <b>8 years</b> of coaching and share market consulting experience, I’ve guided over <b>5000</b> CA students since 2011. Past Chairman of Bhuj Branch of <b>WIRC of ICAI</b>, I’ve also conducted seminars for <b>10,000+</b> devotees and created popular programs like Kaun Banega Sahjannadi Sinh.
+                </p>
+            </section>
+        </div>
+    </section>
+
+    
+    <section class="coach-container" data-scroll-section>
+        <header class="coach-header">
+            <h1>Professional Milestones</h1>
+            <!-- <h2>Transforming lives through motivation and guidance</h2> -->
+        </header>
+        <div class="coach-grid">
+            <div class="coach-card authors">
+                <h3 style="margin-bottom: 10px; ">Past Chairman of Bhuj Branch of WIRC OF ICAI</h3>
+                <p>Connected with Students Community Since 2011 and Guided More than 5000 CA Students</p>
+                <p style="margin-bottom: 10px; ">With Many Years of Experience in the Share Market and Accounting</p>
+                <div class="coach-avatar-group">
+                    <div class="coach-avatar"></div>
+                    <div class="coach-avatar"></div>
+                    <div class="coach-avatar"></div>
+                </div>
+            </div>
+            
+    
+            <div class="coach-card featured" style="cursor: pointer;" onclick="window.open('https://www.youtube.com/live/LxHVuOFbbT0', '_blank')">
+                <div class="coach-icon leaf"></div>
+                <h3>Creator of</h3>
+                <p>Kaun Banega Sahjannadi Sinh stage program</p>
+            </div>
+    
+            <div class="coach-card updates" style="cursor: pointer;" onclick="window.open('https://www.youtube.com/live/PJNCRl9mrHU', '_blank')">
+                <div class="coach-icon envelope"></div>
+                <h3>Creator of</h3>
+                <p>Gao Kirtan Kholo Darwaja stage program</p>
+            </div>
+    
+            <div class="coach-card categories">
+                <div class="coach-quote">8+</div>
+                <p>Years of coaching experience &  Share Market Consultant </p>
+            </div>
+    
+            <div class="coach-card location">
+                <div class="coach-icon location-pin"></div>
+                <h3>10000 Devotees</h3>
+                <p>attended a Spiritual Motivational Seminar conducted to inspire and uplift them.</p>
+            </div>
+    
+            <div class="coach-card testimonial">
+                <h2 style="margin-bottom: 4%;">Passionate Life Coach</h2>
+                <div class="coach-author">
+                    <p>inspires a "Yes, I can do it, I will definitely do it the best," mindset, guiding individuals to a life of wealth, health, and happiness.</p>
+                    <p>Driven by the philosophy of "Ikigai"</p>
+                </div>
+            </div>
+    
+            <div class="coach-card contact">
+                <div class="coach-icon bolt"></div>
+                <h3 style="margin-bottom: 2%;">Client Success Stories</h3>
+                <p>Helped many clients for financial & Spiritual Success</p>
+            </div>
+            
+            <div class="coach-card coming-soon">
+                <div class="dots-container">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <h3>More on the Way</h3>
+                <p>Our journey of growth and achievement continues.</p>
+            </div>
+            <div class="coach-card contact-invite">
+                <h1>Contact For Invitation</h1>
+                <p>Reach out for invitations or consulting opportunities.</p>
+                <button class="cta-button" onclick="window.location.href='invite.html'">Get in touch</button>
+
+            </div>
+            
+        </div>
+    </section>
+    
+
+    
+    
+    <script>
+        document.querySelectorAll('.episode-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.boxShadow = '0 6px 14px rgba(0, 0, 0, 0.1)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+        });
+    });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            const container = document.querySelector('.slides-container');
+            let currentIndex = 0;
+            const slides = [
+                [
+                    { src: "bg/2.png", alt: "Group Workshop" },
+                    { src: "bg/3.png", alt: "One-on-One Session" }
+                ],
+                [
+                    { src: "bg/4.png", alt: "Career Coaching" },
+                    { src: "bg/5.png", alt: "Life Balance" }
+                ]
+            ];
+
+            function updateSlides() {
+                container.style.opacity = '0';
+                container.style.transform = 'translateX(20px)';
+                setTimeout(() => {
+                    container.innerHTML = slides[currentIndex].map(slide => `
+                        <div class="slide">
+                            <img src="${slide.src}" alt="${slide.alt}">
+                        </div>
+                    `).join('');
+                    container.style.opacity = '1';
+                    container.style.transform = 'translateX(0)';
+                }, 300);
+            }
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlides();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlides();
+            });
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlides();
+            }, 5000);
+        });
+    </script>
+
+    <script>
+        // Add new service cards animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+
+
 </body>
 </html>
+
+
+

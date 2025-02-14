@@ -66,6 +66,8 @@ nav a::after {
 nav a:hover::after {
     width: 100%;
 }
+
+
 /* Enhanced Hero Section */
 .hero {
     min-height: 100%;
@@ -361,6 +363,16 @@ nav a:hover::after {
     /* max-width: 1000px; */
     width: 100%;
 }
+.div-section .card {
+    opacity: 1;
+    transform: none;
+}
+
+.div-section .card.visible {
+    animation: none;
+}
+
+
 .card {
     position: relative;
     background: white;
