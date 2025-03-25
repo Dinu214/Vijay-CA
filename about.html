@@ -9,109 +9,468 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
-
-
-    <script src="coach.js"></script>
-
     <link rel="stylesheet" href="about.css">
-
-    
     <link href="https://fonts.cdnfonts.com/css/silka" rel="stylesheet">
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const scroll = new LocomotiveScroll({
-                el: document.querySelector("[data-scroll-container]"),
-                smooth: true,
-                smartphone: {
-                    smooth: false // Disables smooth scroll on mobile
-                },
-                tablet: {
-                    smooth: false
-                }
-            });
-
-            // Refresh Locomotive Scroll when resizing
-            window.addEventListener("resize", () => {
-                scroll.update();
-            });
-        });
-    </script>
 
     <title>Vijay CA</title>
     <link rel="icon" type="image/png" href="VC-logo.png">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // Navbar background change on scroll
-            const nav = document.querySelector('nav');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 100) {
-                    nav.style.background = 'rgba(255, 255, 255, 0.98)';
-                }
-            });
-        });
-    </script>
-
+    <!-- Dropdown Menu Styles -->
     <style>
+        /* Dropdown Menu Styles */
+        .nav-links .dropdown {
+            position: relative;
+        }
 
-.naav {
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    min-height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 0 8%;
-    background: linear-gradient(135deg, rgba(220, 4, 4, 0.02) 0%, rgba(0,0,0,0.05) 100%);
-    position: relative;
-  
-}
+        .nav-links .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform-origin: top center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .nav-links .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-links .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links .dropdown-content a:hover {
+            background-color: #f5f5f5;
+            
+        }
+
+        .nav-links .dropdown-content li {
+            margin: 0;
+        }
+
+        .dropdown .dropdown-arrow {
+            display: inline-block;
+            margin-left: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-toggle {
+            font-size: 1rem !important;
+            padding: 0;
+        }
+
+        .dropdown-toggle .dropdown-arrow {
+            font-size: 0.8rem;
+        }
+
+        ul.dropdown-content {
+            gap: 0.7rem;
+        }
+
+        /* Navigation Styles */
+        .hamburger {
+            display: none;
+            margin-left: auto;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .coach-card.contact-invite {
+                grid-column-start: 3;
+                grid-column-end: 5;
+                grid-row-start: 9;
+                grid-row-end: 9;
+            }
+            .dropdown-toggle {
+            font-size: 1.2rem !important;
+            padding: 0;
+        }
+            
+            /* nav {
+                padding: 0.8rem 1rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                background: rgba(255, 255, 255, 0.95);
+                z-index: 1000;
+            }
+
+            .logo {
+                width: auto;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .hamburger {
+                display: block;
+                width: 15%;
+                cursor: pointer;
+                z-index: 1000;
+                margin-right: -7%;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: #333;
+                margin: 5px 0;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+                opacity: 0;
+                animation: fadeIn 0.5s ease forwards;
+            } */
+
+            .nav-links.active li {
+                opacity: 1;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            @media (max-width: 768px) {
+        /* nav {
+            padding: 0.8rem 1rem;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+        } */
+
+        .logo {
+        width: auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+
+        .hamburger {
+            display: block;
+            width: 15%;
+            cursor: pointer;
+            z-index: 1000;
+            margin-right: -7%;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 1.5rem 0;
+        }
+
+        .nav-links li a {
+            color: #333;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile dropdown styles */
+        .nav-links .dropdown {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        
+
+        .nav-links .dropdown-content.show {
+            opacity: 1;
+            max-height: 500px;
+            margin-top: 10px;
+            visibility: visible;
+        }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero-content {
+                width: 100%;
+                padding: 0 1rem;
+            }
+
+            .hero-text {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .main-image {
+                width: 100%;
+                height: 33rem;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
+
+            /* nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 5%;
+                width: 100%;
+            } */
+            
+            div.logo {
+                margin-left: 4%;
+            }
+
+            .logo {
+                width: 100%;
+                text-align: center;
+                margin: 0;
+            }
+
+            .container {
+                padding: 0 1rem !important;
+            }
+
+            .grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .image-container {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .content {
+                margin-left: 0 !important;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header {
+                text-align: center;
+                width: 100%;
+            }
+
+            .program-card {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats {
+                width: 100%;
+            }
+
+            .coach-container {
+                padding: 2rem 1rem;
+            }
+
+            .coach-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .coach-card {
+                padding: 1.5rem;
+                min-height: auto;
+            }
+
+            .coach-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .coach-card p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .coach-card.authors {
+                grid-column: auto;
+            }
+
+            .coach-card.testimonial {
+                grid-column: auto;
+            }
+
+            .coach-quote {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .coach-avatar-group {
+                margin-top: 1rem;
+            }
+
+            .coach-card.contact-invite {
+                grid-column: auto;
+            }
+
+            .coach-card.contact-invite h1 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                margin-top: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+        }
     </style>
 </head>
 
-
 <body data-scroll-container>
-    
-
-    <section class="naav" data-scroll-section>
-        <nav style="z-index: 1000;height: 70px;">
+    <section class="nav" data-scroll-section>
+        <nav>
             <div class="logo" style="align-items: start;">
                 <span style="cursor: pointer;font-size: larger;font-weight: 500;font-family: 'Brittany Signature', sans-serif;">Vijay CA</span>
             </div>
-            <ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
                 <li style="cursor: pointer;"><a href="index.html">Home</a></li>
                 <li style="cursor: pointer;"><a href="about.html">About</a></li>
+                <li class="dropdown" style="cursor: pointer;">
+                    <div class="dropdown-toggle-container">
+                        <span style="font-weight: 500; color: #333; text-decoration: none;" class="dropdown-toggle">Videos<span class="dropdown-arrow">⮟</span></span>
+                    </div>
+                    <ul class="dropdown-content">
+                        <li><a target="_blank" href="https://www.instagram.com/vijaycamotivation/">Instagram</a></li>
+                        <li><a target="_blank" href="https://www.youtube.com/@VijayCAMotivation/playlists">YouTube</a></li>
+                    </ul>
+                </li>
                 <li style="cursor: pointer;"><a href="invite.html">Invite</a></li>
-                <li style="cursor: pointer;"><a href="contact.html">Contact</a></li>
+                <li style="cursor: pointer;"><a href="contact.html">Inquire Us</a></li>
             </ul>
         </nav>
     </section>
 
-
     <!--about-->
     <section class="container" style="padding: 0 2rem;margin-top:5rem;margin-bottom: 4rem;" data-scroll-section>
-
         <div class="grid">
             <div class="image-container">
                 <img src="bg2.jpg" alt="Life coach speaking" class="main-image">
             </div>
             <div class="content" style="margin-left: 2rem;">
                 <div class="header">
-                    <h1>I'm Vijay Thakkar</h1>
-                    <p>Life coach and Motivator with a passion for helping people achieve their full potential.</p>
+                    <h1>CA Vijay Thacker</h1>
+                    <p>Life Coach and Motivator with a passion for helping people achieve their full potential.</p>
                 </div>
                 <div class="program-card">
                     <div class="program-thumbnail">
-                        <img src="v3.jpg" alt="Group coaching session">
+                        <img src="v1.jpg" alt="Group coaching session">
                     </div>
                     <div class="program-info">
                         <h3>Vijay CA : Life Coach & Motivator</h3>
                         <p>to achieve personal and financial goals </p>
                     </div>
-                 
                 </div>
                 <div class="stats">
                     <div class="stat-card">
@@ -125,20 +484,21 @@
                 </div>
                 <div class="connect-section">
                     <p>Get in touch</p>
-                    <div class="social-buttons">
-                        <button class="social-button facebook">
+                    <div class="social-buttons" >
+                        <button class="social-button youtube" onclick="window.open('https://www.youtube.com/@VijayCAMotivation', '_blank')">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
                             </svg>
                         </button>
-                        <button class="social-button instagram">
+                        <button class="social-button instagram" onclick="window.open('https://www.instagram.com/vijaycamotivation/', '_blank')">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                         </button>
-                        <button class="social-button whatsapp">
+                        <button class="social-button whatsapp" onclick="window.open('https://wa.me/919962355555', '_blank')">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                             </svg>
@@ -151,19 +511,27 @@
                         </button>
                     </div>
                 </div>
+                
+                <style>
+                    .social-button.youtube svg {
+                        stroke: #FF0000;
+                    }
+                    
+                    .social-button.mail svg {
+                        stroke:#0078FF;
+                    }
+                </style>
             </div>
         </div>
     </section>
 
-
-<section class="hero" data-scroll-section>
-    <div class="hero-content">
+    <section class="hero" data-scroll-section>
+        <div class="hero-content">
             <p class="hero-text">
-                We believe that transforming lives should be an enjoyable and empowering experience. As your dedicated life coach, I bring years of expertise and deep understanding to help you unlock your full potential. With personalized guidance and unwavering support, we'll work together to make your journey of personal growth seamless and fulfilling.
+                We believe that transforming lives should be an enjoyable and empowering experience. As your dedicated life coach, bring years of expertise and deep understanding to help you unlock your full potential. With personalized guidance and unwavering support, we'll work together to make your journey of personal growth seamless and fulfilling.
             </p>
         </div>
     </section>
-
 
     <section class="services-section" data-scroll-section>
         <div class="services">
@@ -179,7 +547,7 @@
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-icon mindset-coaching">
                     <svg viewBox="0 0 24 24" class="icon">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"></path>
                     </svg>
                 </div>
                 <h3>Mindset Coaching</h3>
@@ -197,7 +565,6 @@
         </div>
     </section>
 
-
     <section class="gallery-container" data-scroll-section>
         <div class="gallery-layout">
             <section class="featured-section">
@@ -205,7 +572,7 @@
             </section>
             <section class="gallery-content">
                 <div class="gallery-header">
-                    <h2>Guiding Minds in <br>Finance, Accounting & Trading</h2>
+                    <h2>Consulting Minds in <br>Stock Market</h2>
                     <div class="navigation">
                         <button class="nav-btn prev" aria-label="Previous">&larr;</button>
                         <button class="nav-btn next" aria-label="Next">&rarr;</button>
@@ -221,17 +588,15 @@
                     </div>
                 </div>
                 <p class="gallery-description">
-                    A Chartered Accountant with <b>8 years</b> of coaching and share market consulting experience, I’ve guided over <b>5000</b> CA students since 2011. Past Chairman of Bhuj Branch of <b>WIRC of ICAI</b>, I’ve also conducted seminars for <b>10,000+</b> devotees and created popular programs like Kaun Banega Sahjannadi Sinh.
+                    A Chartered Accountant with <b>8 years</b> of coaching and <b>8 years</b> of share market consulting experience, have guided over <b>5000</b> CA students since 2011. Past Chairman of Bhuj Branch of <b>WIRC of ICAI</b>, have also conducted seminars for <b>10,000+</b> devotees and created popular programs like Kaun Banega Sahjannadi Sinh and Gao Kirtan Kholo Darwaja.
                 </p>
             </section>
         </div>
     </section>
 
-    
     <section class="coach-container" data-scroll-section>
         <header class="coach-header">
             <h1>Professional Milestones</h1>
-            <!-- <h2>Transforming lives through motivation and guidance</h2> -->
         </header>
         <div class="coach-grid">
             <div class="coach-card authors">
@@ -245,42 +610,44 @@
                 </div>
             </div>
             
-    
             <div class="coach-card featured" style="cursor: pointer;" onclick="window.open('https://www.youtube.com/live/LxHVuOFbbT0', '_blank')">
                 <div class="coach-icon leaf"></div>
                 <h3>Creator of</h3>
                 <p>Kaun Banega Sahjannadi Sinh stage program</p>
+                <p>click to watch</p>
             </div>
     
             <div class="coach-card updates" style="cursor: pointer;" onclick="window.open('https://www.youtube.com/live/PJNCRl9mrHU', '_blank')">
                 <div class="coach-icon envelope"></div>
                 <h3>Creator of</h3>
                 <p>Gao Kirtan Kholo Darwaja stage program</p>
+                <p>click to watch</p>
             </div>
     
             <div class="coach-card categories">
                 <div class="coach-quote">8+</div>
-                <p>Years of coaching experience &  Share Market Consultant </p>
+                <p>Years of Coaching experience &  8+ years of Share Market Consultant </p>
             </div>
     
             <div class="coach-card location">
                 <div class="coach-icon location-pin"></div>
                 <h3>10000 Devotees</h3>
-                <p>attended a Spiritual Motivational Seminar conducted to inspire and uplift them.</p>
+                <p>Attended a Spiritual Motivational Seminar conducted to inspire and uplift them.</p>
             </div>
     
             <div class="coach-card testimonial">
                 <h2 style="margin-bottom: 4%;">Passionate Life Coach</h2>
                 <div class="coach-author">
-                    <p>inspires a "Yes, I can do it, I will definitely do it the best," mindset, guiding individuals to a life of wealth, health, and happiness.</p>
-                    <p>Driven by the philosophy of "Ikigai"</p>
+                    <p>Inspires a "Yes, I can do it, I will definitely do it the best," mindset, guiding Individuals to a life of wealth, health, and happiness.</p>
+                    <p>Driven by the Philosophy of "Ikigai"</p>
                 </div>
             </div>
     
-            <div class="coach-card contact">
+            <div class="coach-card contact" style="cursor: pointer;" onclick="window.open('https://www.youtube.com/shorts/-KRBkZaJbvk', '_blank')">
                 <div class="coach-icon bolt"></div>
-                <h3 style="margin-bottom: 2%;">Client Success Stories</h3>
-                <p>Helped many clients for financial & Spiritual Success</p>
+                <h3 style="margin-bottom: 2%;">Creator of </h3>
+                <p>Who Says Women? - Women's day Special Seminar</p>
+                <p>click to watch</p>
             </div>
             
             <div class="coach-card coming-soon">
@@ -296,26 +663,69 @@
                 <h1>Contact For Invitation</h1>
                 <p>Reach out for invitations or consulting opportunities.</p>
                 <button class="cta-button" onclick="window.location.href='invite.html'">Get in touch</button>
-
             </div>
-            
         </div>
     </section>
-    
 
-    
-    
     <script>
-        document.querySelectorAll('.episode-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.boxShadow = '0 6px 14px rgba(0, 0, 0, 0.1)';
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
-        });
-    });
-
         document.addEventListener('DOMContentLoaded', () => {
+            // Hamburger menu functionality
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Dropdown functionality for mobile
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            let isOpen = false;
+            
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                isOpen = !isOpen;
+                dropdownContent.classList.toggle('show');
+                
+                const arrow = this.querySelector('.dropdown-arrow');
+                arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0)';
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    dropdownContent.classList.remove('show');
+                    const arrow = document.querySelector('.dropdown-arrow');
+                    if (arrow) {
+                        arrow.style.transform = 'rotate(0)';
+                    }
+                    isOpen = false;
+                }
+            });
+
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-links li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+
+            // Handle dropdown links in mobile menu
+            const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    dropdownContent.classList.remove('show');
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    isOpen = false;
+                });
+            });
+
+            // Gallery slider functionality
             const prevBtn = document.querySelector('.prev');
             const nextBtn = document.querySelector('.next');
             const container = document.querySelector('.slides-container');
@@ -327,7 +737,7 @@
                 ],
                 [
                     { src: "bg/4.png", alt: "Career Coaching" },
-                    { src: "bg/5.png", alt: "Life Balance" }
+                    { src: "bg/bg4.jpg", alt: "Life Balance" }
                 ]
             ];
 
@@ -359,12 +769,8 @@
                 currentIndex = (currentIndex + 1) % slides.length;
                 updateSlides();
             }, 5000);
-        });
-    </script>
 
-    <script>
-        // Add new service cards animation
-        document.addEventListener('DOMContentLoaded', () => {
+            // Service cards animation
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -388,12 +794,26 @@
                     card.style.transform = 'translateY(0)';
                 });
             });
+
+            // Episode card hover effects
+            document.querySelectorAll('.episode-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.boxShadow = '0 6px 14px rgba(0, 0, 0, 0.1)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+                });
+            });
+
+            // Navbar background change on scroll
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                }
+            });
         });
     </script>
-
-
 </body>
 </html>
-
-
 

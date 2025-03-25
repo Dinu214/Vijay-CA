@@ -383,7 +383,7 @@ nav a:hover::after {
 }
 .orange-card {
     flex: 2;
-    background: #f68b1e;
+    background:  #608cdf;
     color: white;
 }
 .medium-card {
@@ -420,7 +420,7 @@ nav a:hover::after {
     margin-top: 15px;
     padding: 10px 15px;
     background: white;
-    color: #f68b1e;
+    color: #4a6fa5;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;

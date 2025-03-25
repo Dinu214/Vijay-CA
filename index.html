@@ -61,11 +61,9 @@
         opacity: 1;
     }
 
-    .slide:nth-child(1) { background: var(--secondary-color); }
-    .slide:nth-child(2) { background: #4B0082; }
-    .slide:nth-child(3) { background: var(--accent-color); }
-    .slide:nth-child(4) { background: #8B0000; }
-
+    .slide:nth-child(1), .slide:nth-child(2), .slide:nth-child(3), .slide:nth-child(4) { 
+        background: #2a4a7f; /* A nice medium blue */
+    }
     .slide-image {
         flex: 1;
         z-index: 0;
@@ -255,6 +253,7 @@
     }
 
     @media (max-width: 768px) {
+        /* Footer mobile adjustments */
         .footer-container {
             grid-template-columns: 1fr;
             text-align: center;
@@ -266,7 +265,37 @@
         }
 
         .contact-item {
+            display: block;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-item i {
+            display: block;
+            margin: 0 auto 0.5rem;
+            width: auto;
+        }
+
+        .contact-item span {
+            display: block;
+            margin-left: 0;
+        }
+
+        /* Quick Links specific adjustments */
+        .footer-section:nth-child(3) .contact-item {
+            display: flex;
             justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section:nth-child(3) .contact-item i {
+            display: inline;
+            margin: 0;
+        }
+
+        .footer-section:nth-child(3) .contact-item span {
+            display: inline;
         }
 
         .social-links {
@@ -274,6 +303,200 @@
         }
     }
 </style>
+<style>
+    /* Dropdown Menu Styles - FIXED */
+.nav-links .dropdown {
+    position: relative;
+}
+
+.nav-links .dropdown-content {
+    margin-top: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: top center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-links .dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-links .dropdown-content a:hover {
+    background-color: #f5f5f5;
+    color: var(--primary-color);
+}
+
+.nav-links .dropdown-content li {
+    margin: 0;
+}
+
+.dropdown .dropdown-arrow {
+    display: inline-block;
+    margin-left: 4px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-toggle {
+    font-size: 1rem !important;
+    padding: 0;
+}
+
+.dropdown-toggle .dropdown-arrow {
+    font-size: 0.8rem;
+}
+
+ul.dropdown-content {
+    gap:0.7rem;
+}
+
+
+/* Mobile dropdown styles - FIXED */
+@media (max-width: 768px) {
+    .nav-links .dropdown {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    span.dropdown-toggle {
+        font-weight: 500;
+        font-size: 1rem;
+    }
+    
+    .nav-links .dropdown-content {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        visibility: visible;
+        transform: none;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.4s ease;
+    }
+    
+    .nav-links .dropdown-content.show {
+        opacity: 1;
+        max-height: 500px;
+        margin-top: 10px;
+        visibility: visible;
+    }
+    
+    .nav-links .dropdown-content li {
+        width: 100%;
+        text-align: center;
+    }
+
+    
+    .nav-links .dropdown-content a {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 0;
+        display: inline-block;
+    }
+
+    .dropdown-toggle {
+        font-size: 1.2rem !important;
+    }
+    
+    .dropdown-toggle .dropdown-arrow {
+        font-size: 1rem;
+    }
+    
+    /* Add spacing between dropdown toggle and items */
+    .dropdown-toggle-container {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Make dropdown items appear vertically */
+    .nav-links .dropdown-content {
+        display: flex;
+        flex-direction: column;
+    }
+}
+</style>
+<script>
+    // Handle mobile dropdown menu
+    document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    let isOpen = false;
+    
+    dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        isOpen = !isOpen;
+        dropdownContent.classList.toggle('show');
+        
+        const arrow = this.querySelector('.dropdown-arrow');
+        arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0)';
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            dropdownContent.classList.remove('show');
+            const arrow = document.querySelector('.dropdown-arrow');
+            if (arrow) {
+                arrow.style.transform = 'rotate(0)';
+            }
+            isOpen = false;
+        }
+    });
+
+        
+        
+        // Close the mobile menu when clicking a dropdown item
+        const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                const hamburger = document.querySelector('.hamburger');
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                dropdownContent.classList.remove('show');
+            });
+        });
+    });
+</script>
 
 </head>
 
@@ -284,18 +507,32 @@
             <div class="logo" style="align-items: start;">
                 <span style="cursor: pointer;font-size: larger;font-weight: 500;font-family: 'Brittany Signature', sans-serif;">Vijay CA</span>
             </div>
-            <ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
                 <li style="cursor: pointer;"><a href="index.html">Home</a></li>
                 <li style="cursor: pointer;"><a href="about.html">About</a></li>
+                <li class="dropdown" style="cursor: pointer;">
+                    <div class="dropdown-toggle-container">
+                        <span style="font-weight: 500; color: #333; text-decoration: none;"  class="dropdown-toggle">Videos<span class="dropdown-arrow">⮟</span></sapn>
+                    </div>
+                    <ul class="dropdown-content">
+                        <li><a target="_blank" href="https://www.instagram.com/vijaycamotivation/">Instagram</a></li>
+                        <li><a target="_blank" href="https://www.youtube.com/@VijayCAMotivation/playlists">YouTube</a></li>
+                  </ul>
+                </li>
                 <li style="cursor: pointer;"><a href="invite.html">Invite</a></li>
-                <li style="cursor: pointer;"><a href="contact.html">Contact</a></li>
+                <li style="cursor: pointer;"><a href="contact.html">Inquire Us</a></li>
             </ul>
         </nav>
         
         <div class="hero-content">
             <h1 class="animate-text">Life Coach & Motivator</h1>
             <p class="animate-text-delay">Transform your mindset, achieve success, and live a fulfilling life with expert guidance.</p>
-            <button class="cta-button">Get in touch</button>
+            <a  href="contact.html"><button class="cta-button">Get in Touch</button></a>
         </div>
         <div class="hero-image">
             <img src="bg5.webp" alt="Hero Image">
@@ -355,12 +592,12 @@
             </div>
             <div class="card medium-card">
                 <h2 style="z-index: 1;">Create Lasting Change</h2>
-                <p>creating lasting habits</p>
-                <img src="arrow.webp" alt="Checkout Image">
+                <p>creating Lasting Habits</p>
+                <img src="arrow3.png" alt="Checkout Image">
             </div>
             <div class="card small-card">
                 <h2>Achieve Clarity and Focus</h2>
-                <p>Clear the noise, find your purpose</p>
+                <p>Clear the noise, Find your purpose</p>
                 <img src="ikigai.webp" alt="Discount Image">
             </div>
         </div>
@@ -455,22 +692,22 @@
         <div class="journey-path">
             <div class="step">
                 <i class="fas fa-calendar-check"></i>
-                <p>Schedule a call</p>
+                <p>Schedule a Call</p>
             </div>
             <div class="arrow"></div>
             <div class="step">
                 <i class="fas fa-comments"></i>
-                <p>We'll talk</p>
+                <p>We'll Talk</p>
             </div>
             <div class="arrow"></div>
             <div class="step">
                 <i class="fas fa-lightbulb"></i>
-                <p>Learn something</p>
+                <p>Learn Something</p>
             </div>
             <div class="arrow"></div>
             <div class="step">
                 <i class="fas fa-chart-line"></i>
-                <p>Improve life</p>
+                <p>Improve Life</p>
             </div>
         </div>
     </section>
@@ -478,8 +715,9 @@
     <!-- Contact and Map Section -->
     <section class="contact-map" id="contact" data-scroll-section>
         <div class="contact-form">
-            <h3>Contact Us</h3>
-            <form>
+            <h3>Inquire Us</h3>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="52741830-c78f-4943-b033-1c12c4e23aee">
                 <div class="form-group">
                     <input type="text" placeholder="Your Name" required>
                 </div>
@@ -493,14 +731,12 @@
             </form>
         </div>
         <div class="map">
-            <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d69.69789196437341!3d23.233489960063853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDEzJzU0LjUiTiA2OcKwNDEnNTIuNCJF!5e0!3m2!1sen!2sus!4v1580150827791!5m2!1sen!2sus" 
-            width="100%" 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1177.9464405812384!2d69.69639505695302!3d23.23331816484004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3950e1bc08177875%3A0x2e363f08abe29955!2sJay%20Jalaram%20Restaurant!5e1!3m2!1sen!2sin!4v1742567051286!5m2!1sen!2sin" width="600" style="border:0;" allowfullscreen=""  referrerpolicy="no-referrer-when-downgrade"
             height="100%" 
             style="border:0;" 
             allowfullscreen="" 
             loading="lazy">
-</iframe>
+            </iframe>
 
 
         </div>
@@ -544,36 +780,41 @@
                 <div class="footer-content">
                     <div class="contact-item">
                         <i class="fas fa-chevron-right"></i>
-                        <span>Home</span>
+                        <a href="index.html" style="text-decoration: none; color: inherit;"><span>Home</span></a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-chevron-right"></i>
-                        <span>About</span>
+                        <a href="about.html" style="text-decoration: none; color: inherit;"><span>About</span></a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-chevron-right"></i>
-                        <span>Services</span>
+                        <a style="text-decoration: none; color: inherit;" href="https://www.youtube.com/@VijayCAMotivation" target="_blank" rel="noopener noreferrer"><span>Videos</span></a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-chevron-right"></i>
-                        <span>Contact</span>
+                        <a href="invite.html" style="text-decoration: none; color: inherit;"><span>Invite</span></a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="contact.html" style="text-decoration: none; color: inherit;"><span>Inquire Us</span></a>
                     </div>
                 </div>
             </div>
+            
     
             <div class="footer-section">
                 <h3 class="footer-heading">Connect With Me</h3>
                 <div class="footer-content">
-                    <p>Follow me on social media for daily inspiration and updates on upcoming workshops.</p>
+                    <p>Follow me on social media and subscribe for daily inspiration and updates on upcoming workshops.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
+                        <a href="mailto:cavijaythacker@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/919879996644" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="#" class="social-link">
                             <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
                         </a>
                         <a href="#" class="social-link">
                             <i class="fab fa-youtube"></i>
@@ -581,6 +822,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     
         <div class="footer-bottom">
@@ -611,5 +853,400 @@
             setActiveSlide(currentSlide);
         }, 5000);
     </script>
-</body>
-</html>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+    
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
+    <style>
+    /* Navigation Styles */
+    
+
+    .hamburger {
+        display: none;
+        margin-left: auto;
+        z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            padding: 0.8rem 1rem;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+        }
+
+        .logo {
+        width: auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+
+        .hamburger {
+            display: block;
+            width: 15%;
+            cursor: pointer;
+            z-index: 1000;
+            margin-right: -7%;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 1.5rem 0;
+        }
+
+        .nav-links li a {
+            color: #333;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    }
+    
+
+    /* Tablet Responsive Styles */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .hero {
+            padding: 2rem;
+        }
+
+        .cards {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 3rem 2rem;
+        }
+
+        @media (max-width: 768px) {
+            /* Improve raw section (Embrace your thoughts) */
+            .raw {
+                padding: 5rem 1.5rem;
+                text-align: left;
+               
+                background: #f8f9fa;
+            }
+
+            .raw h2 {
+                font-size: 2.8rem;
+                line-height: 1.2;
+                font-weight: 600;
+                max-width: 90%;
+                margin-left: 1rem;
+            }
+
+            /* Fix slideshow spacing */
+            .slider-container {
+                margin-top: 4rem;
+                height: 45rem;
+            }
+
+            .testimonial {
+                font-size: 1.8rem;
+                padding: 0 2rem;
+            }
+
+            /* Enhance div section layout */
+            .div-section {
+                padding: 2rem 1rem;
+                margin: 2rem 0;
+                background: #fff;
+            }
+
+            .div-section .container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 1rem;
+            }
+
+            .div-section .card {
+                min-height: 280px;
+                padding: 2.5rem 2rem;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .div-section .card h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                max-width: 60%;
+                line-height: 1.2;
+            }
+
+            .div-section .card p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                max-width: 60%;
+                opacity: 0.8;
+            }
+
+            .div-section .card img {
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+                max-width: 45%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            .orange-card {
+                background: #f0f7ff;
+            }
+
+            .orange-card img {
+                max-width: 55% !important;
+                right: 0 !important;
+            }
+
+            .medium-card {
+                background: #fff5f5;
+            }
+
+            .medium-card img {
+                max-width: 50% !important;
+                right: -1rem !important;
+            }
+
+            .small-card {
+                background: #f8f0ff;
+            }
+
+            .small-card img {
+                max-width: 45% !important;
+                right: 0.5rem !important;
+            }
+        }
+    }
+
+    /* Larger Screens */
+    @media (min-width: 1025px) {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    }
+
+@media (max-width: 768px) {
+
+    .orange-card img {
+        width: 25rem;
+        bottom: -57px;
+        right: -6rem;
+    }
+
+    .medium-card img {
+    top: -61px;
+    width: 49rem;
+    left: 1rem;
+    }
+
+    .small-card img {
+    /* width: 80px; */
+    bottom: -72px;
+    width: 29rem;
+    left: 1rem;
+    }
+
+
+    nav {
+        padding: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    
+
+    .hamburger {
+        display: block;
+        margin-left: auto;
+        padding-right: 0;
+    }
+
+    /* Hero Section Mobile Layout */
+    .hero {
+        flex-direction: column;
+        padding: 0;
+        height: auto;
+    }
+
+    .hero-content {
+        width: 100%;
+        order: 1;
+        padding: 4rem 1.5rem 2rem;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+        margin: 1rem 0 1.5rem;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 75vh;
+        order: 2;
+        margin: 0;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    
+}
+@media (max-width: 768px) {
+    /* Slideshow adjustments for mobile */
+    .raw {
+        padding: 3rem 1rem;
+        text-align: center;
+        /* margin: 2rem 0; */
+        background: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 30vh;
+    }
+
+    .raw h2 {
+        font-size: 2.5rem;
+        line-height: 1.3;
+        font-weight: 600;
+        margin: 0;
+        padding: 0 1rem;
+        max-width: 100%;
+        text-align: center;
+    }
+    section.testimonials-section{
+        margin-top: 21rem;
+    }
+    .slider-container {
+        margin-top: 3rem;
+        height: 90vh;
+        position: relative;
+    }
+
+    .slide {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .slide-image {
+        height: 65%;
+        width: 100%;
+        position: relative;
+    }
+
+    .slide-image img {
+        margin-left: 9%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .slide-content {
+        height: 35%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: #2a4a7f;
+    }
+
+    .testimonial {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        text-align: center;
+        margin: 0;
+        padding: 0.5rem 1rem;
+    }
+
+    .navigation {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0.8rem;
+        background: rgba(42, 74, 127, 0.95);
+    }
+
+    .nav-button {
+        width: 35px;
+        height: 35px;
+    }
+}

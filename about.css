@@ -10,12 +10,20 @@
     --secondary-color: #0984e3;
     --primary-color: #4CAF50;
     --background-color: #ffffff;
-    --mint-green: #D8E6E1;
-    --soft-purple: #E9E8ED;
-    --warm-beige: #EDE8E3;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
 
 /* Navigation */
 nav {
@@ -63,19 +71,6 @@ nav a:hover::after {
     width: 100%;
 }
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    overflow-x: hidden;
-}
 .grid {
     display: grid;
     gap: 2rem;
@@ -354,16 +349,14 @@ body {
     }
 }
 
-
 .hero {
     background-color: #f9fafb;
     display: flex;
-    padding-top: 3rem; /* Added to account for fixed navbar */
+    padding-top: 3rem;
     max-width: 100%;
     padding-left: 12rem;
     padding-right: 12rem;
 }
-
 
 .logo-img {
     width: 70px;
@@ -381,7 +374,6 @@ body {
     color: black;
     line-height: 1.8;
 }
-
 
 .gallery-container {
     max-width: 1440px;
@@ -409,6 +401,7 @@ body {
     will-change: transform;
     transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
 }
+
 .featured-section:hover img {
     transform: scale(1.08);
 }
@@ -461,24 +454,26 @@ body {
     opacity: 1;
     transform: translateX(0);
 }
-  .slide {
-      flex: 1;
-      border-radius: 0.5rem;
-      overflow: hidden;
-      cursor: pointer;
-  }
 
-  .slide img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
-      will-change: transform;
-  }
+.slide {
+    flex: 1;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+}
 
-  .slide:hover img {
-      transform: scale(1.08);
-  }
+.slide img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+    will-change: transform;
+}
+
+.slide:hover img {
+    transform: scale(1.08);
+}
+
 .gallery-description {
     color: #666;
     font-size: 0.9rem;
@@ -486,25 +481,6 @@ body {
     max-width: 90%;
     font-family: 'Poppins', sans-serif;
 }
-
-@media (max-width: 768px) {
-    .gallery-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .gallery-header h2 {
-        font-size: 2.5rem;
-    }
-    
-    .gallery-description {
-        max-width: 100%;
-    }
-}
-
-
-/* Add this to the end of your about.css file */
-
 
 .container11 {
     display: flex;
@@ -539,8 +515,6 @@ body {
     border-radius: 20px 20px 0 0;
 }
 
-
-
 .episode-details {
     padding: 15px;
 }
@@ -568,8 +542,7 @@ body {
     background-color: #555;
 }
 
-/* Add these new styles after your existing CSS */
-
+/* Coach section styles */
 .coach-container {
     max-width: 100%;
     margin: 0 auto;
@@ -652,7 +625,6 @@ body {
         0 0 30px var(--accent);
     animation: borderGlow 1.5s ease-in-out infinite;
 }
-
 
 @keyframes borderGlow {
     0% {
@@ -780,6 +752,7 @@ body {
     font-size: 1.4rem;
     color: var(--primary);
 }
+
 .coach-card.coming-soon h1 {
     margin-bottom: 0.5rem;
     font-size: 1.4rem;
@@ -789,7 +762,9 @@ body {
 .coach-card.coming-soon p {
     font-size: 0.9rem;
     opacity: 0.8;
-}.coach-card.contact-invite {
+}
+
+.coach-card.contact-invite {
     grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 3;
@@ -805,7 +780,6 @@ body {
     box-shadow: none;
     color: var(--accent);
 }
-
 
 .coach-card.contact-invite:hover {
     transform: translateY(-15px);
@@ -830,6 +804,19 @@ body {
 }
 
 @media (max-width: 768px) {
+    .gallery-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .gallery-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .gallery-description {
+        max-width: 100%;
+    }
+    
     .coach-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -841,7 +828,10 @@ body {
         grid-column: span 1;
         grid-row: span 1;
     }
+    
+    .hero {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
-
-
 
