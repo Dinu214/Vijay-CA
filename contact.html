@@ -423,6 +423,13 @@
 }
 
 @media (max-width: 768px) {
+
+    .location-info h2{
+        display: none;
+    }
+    .contact-grid{
+        margin-top: -3rem;
+    }
     nav {
         padding: 0.8rem 1rem;
         flex-direction: row;
@@ -525,6 +532,46 @@
 
         .map-container {
             height: 300px;
+        }
+
+        .footer{
+        padding: 3rem 1rem 0 1rem;
+    }
+    
+    .footer-content{
+    line-height: 1.8;
+    font-size: 0.8rem;
+    }
+
+    .footer-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    }
+
+    .contact-item {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+    .footer-section:nth-child(3) {
+            margin-left: 0 !important;
+        }
+        
+        /* Make Quick Links content display as inline-flex with gap */
+        .footer-section:nth-child(3) .footer-content {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 7px;
+        }
+        
+        /* Adjust contact items in Quick Links section */
+        .footer-section:nth-child(3) .contact-item {
+            display: inline-flex;
+            align-items: center;
+            margin: 0.3rem;
         }
     }
 </style>
@@ -647,8 +694,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="contact-info">
                 <h1>Inquire Us</h1>
                 <p>Email, call, or complete the form to learn how we can help you</p>
-                <p>info@company.com</p>
-                <p>+1 (555) 123-4567</p>
+                <p>cavijaythacker@gmail.com</p>
+                <p>+91 987 999 66 44 </p>
 
                 <div class="support-grid" style="padding-top: 2.5rem;">
                     <div class="support-item">
@@ -660,7 +707,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
 
             <div class="contact-form">
-                <h2>Get in Touch</h2>
+                <h2>Inquire Us</h2>
                 <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
                     <input type="hidden" name="access_key" value="52741830-c78f-4943-b033-1c12c4e23aee">
                     <div class="form-row">
@@ -704,10 +751,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h2>Connecting Near and Far</h2>
                 <div class="location-details">
                     <h3>Office</h3>
-                    <p>Company Name</p>
-                    <p>123 Business Street, Suite 456</p>
-                    <p>San Francisco, CA 94105</p>
-                    <p>United States</p>
+                    <p>Vijay CA</p>
+                    <p>103, Trisha Arcade, Nr. Gandhi Circle</p>
+                    <p>Madhapar, Bhuj-Kutch</p>
+                    <!-- <p>United States</p> -->
                 </div>
             </div>
         </div>
@@ -780,7 +827,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a href="mailto:cavijaythacker@gmail.com" class="social-link">
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="https://wa.me/919879996644" class="social-link">
+                        <a href="https://wa.me/9879996644" class="social-link">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="#" class="social-link">
