@@ -1156,10 +1156,29 @@ ul.dropdown-content {
     }
 
     .hero-image img {
+        position: absolute;
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
+        bottom: -4rem;
+    
+    }
+
+
+    .hero::before{
+        transition: none;
+        animation: none;
+        transform: none;
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 25rem;
+        height: 131rem;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(203, 9, 227, 0.08) 0%, rgb(0 184 148 / 8%) 70%);
+        top: -69%;
+        left: -4%;
     }
 
     
