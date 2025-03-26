@@ -498,6 +498,24 @@ ul.dropdown-content {
     });
 </script>
 
+
+<script>
+    function whatsapp(){
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+      
+    var url = "https://wa.me/9879996644?text="
+    +"*Inquiry for VijayCA.com*%0a"
+    +"%0a"
+    +"*Name :* "+name+"%0a"
+    +"*Email :* "+email+"%0a"
+    +"*Message :* "+message;
+      
+    window.open(url,'_blank').focus();
+    }
+</script>
+
 </head>
 
 <body data-scroll-container>
@@ -717,17 +735,17 @@ ul.dropdown-content {
     <section class="contact-map" id="contact" data-scroll-section>
         <div class="contact-form">
             <h3>Inquire Us</h3>
-            <form target="_blank" action="https://formsubmit.co/dddddsssss12567@gmail.com" method="POST">
+            <form action="https://formspree.io/f/mldjlezz" method="POST">
                 <div class="form-group">
-                    <input name="name" type="text" placeholder="Your Name" required>
+                    <input id="name" name="name" type="text" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input name="email" type="email" placeholder="Your Email" required>
+                    <input id="email" name="email" type="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="primary-btn">Send Message</button>
+                <button onclick="whatsapp()" type="submit" class="primary-btn">Send Message</button>
             </form>
         </div>
         <div class="map">

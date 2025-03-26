@@ -37,15 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Form submission handling
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Add your form submission logic here
-            alert('Form submitted successfully!');
-            contactForm.reset();
-        });
-    }
+    // const contactForm = document.querySelector('.contact-form form');
+    // if (contactForm) {
+    //     contactForm.addEventListener('submit', (e) => {
+    //         e.preventDefault();
+    //         // Add your form submission logic here
+    //         alert('Form submitted successfully!');
+    //         contactForm.reset();
+    //     });
+    // }
 
     // Parallax effect for hero section
     window.addEventListener('scroll', () => {

@@ -736,6 +736,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+    function whatsapp(){
+        var subject = document.getElementById("_subject").value;
+        var name = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("number").value;
+        var event = document.getElementById("eventType").value;
+        var message = document.getElementById("message").value;
+        
+        var url = "https://wa.me/9879996644?text="
+        +"*Invitation for VijayCA.com*%0a"
+        +"%0a"
+        +"*Subject :* "+subject+"%0a"
+        +"*Event Type :* "+event+"%0a"
+        +"*Name :* "+name+lastName+"%0a"
+        +"*Email :* "+email+"%0a"
+        +"*Phone :* "+phone+"%0a"
+        +"*Message :* "+message;
+        
+        window.open(url,'_blank').focus();
+    }
+    </script>
+
 </head>
 <body>
     <nav>
@@ -782,18 +806,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <div class="contact-form">
                 <h2>Invite Us</h2>
-                <form target="_blank" action="https://formsubmit.co/dddddsssss12567@gmail.com" method="POST" id="contactForm">
-                    
+                <form action="https://formspree.io/f/mldjlezz" method="POST" id="contactForm">
+                    <input type="hidden" id="_subject" name="_subject" value="Invite Request" />
                     <div class="form-row">
                         <div class="form-group">
-                            <input name="firstName" type="text" placeholder="First name" required>
+                            <input id="firstName" name="firstName" type="text" placeholder="First name" required>
                         </div>
                         <div class="form-group">
-                            <input name="lastName" type="text" placeholder="Last name" required>
+                            <input id="lastName" name="lastName" type="text" placeholder="Last name" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input name="email" type="email" placeholder="Your email" required>
+                        <input id="email" name="email" type="email" placeholder="Your email" required>
                     </div>
                     <div class="form-group">
                         <div style="display: flex; gap: 10px;">
@@ -802,7 +826,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <option value="+44">+44</option>
                                 <option value="+91">+1</option>
                             </select>
-                            <input name="number" type="tel" placeholder="Phone number" style="flex: 1;">
+                            <input id="number" name="number" type="tel" placeholder="Phone number" style="flex: 1;">
                         </div>
                     </div>
                     <select name="eventType" id="eventType" required style="margin-bottom: 20px;">
@@ -815,9 +839,9 @@ document.addEventListener('DOMContentLoaded', function() {
                   </select>
 
                     <div class="form-group">
-                        <textarea name="message" placeholder="Tell us about your event" required></textarea>
+                        <textarea id="message" name="message" placeholder="Tell us about your event" required></textarea>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button onclick="whatsapp()" type="submit">Submit</button>
                 </form>
             </div>
         </div>
@@ -911,13 +935,13 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
   </footer>
 
-    <script>
+    <!-- <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             // Add your form submission logic here
             alert('Form submitted successfully!');
         });
-    </script>
+    </script> -->
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {

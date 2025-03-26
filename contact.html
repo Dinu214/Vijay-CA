@@ -584,6 +584,8 @@
    var message = document.getElementById("message").value;
       
     var url = "https://wa.me/9879996644?text="
+    +"*Inquiry for VijayCA.com*%0a"
+    +"%0a"
     +"*FirstName :* "+name+"%0a"
     +"*LastName :* "+lastName+"%0a"
     +"*Email :* "+email+"%0a"
@@ -708,30 +710,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <div class="contact-form">
                 <h2>Inquire Us</h2>
-                <form action="https://formsubmit.co/dddddsssss12567@gmail.com" method="POST" id="contactForm">
-                    
+                <form action="https://formspree.io/f/mldjlezz" method="POST" id="contactForm">
+                    <input type="hidden" name="_subject" value="Inquiry from Vijay CA Website" />
                     <div class="form-row">
                         <div class="form-group">
-                            <input id="firstName" type="text" placeholder="First name" required>
+                            <input name="firstName" id="firstName" type="text" placeholder="First name" required>
                         </div>
                         <div class="form-group">
-                            <input id="lastName" type="text" placeholder="Last name" required>
+                            <input name="lastName" id="lastName" type="text" placeholder="Last name" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input id ="email" type="email" placeholder="Your email" required>
+                        <input name="email" id ="email" type="email" placeholder="Your email" required>
                     </div>
                     <div class="form-group">
                         <div style="display: flex; gap: 10px;">
-                            <select style="width: 100px;">
+                            <select name="prefix" style="width: 100px;">
                                 <option value="+1">+91</option>
                                 
                             </select>
-                            <input id="phone" type="tel" placeholder="Phone number" style="flex: 1;">
+                            <input name="number" id="phone" type="tel" placeholder="Phone number" style="flex: 1;">
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea id ="message" placeholder="How can we help?" required></textarea>
+                        <textarea name="message" id ="message" placeholder="How can we help?" required></textarea>
                     </div>
                     <button type="submit" onclick="whatsapp()">Submit</button>
                 </form>
@@ -849,13 +851,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-    <script>
+    <!-- <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             // Add your form submission logic here
             alert('Form submitted successfully!');
         });
-    </script>
+    </script> -->
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
