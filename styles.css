@@ -466,7 +466,7 @@ nav a:hover::after {
     margin: 0 auto;
     position: relative;
     padding: 2rem 0;
-    z-index: 1;
+    z-index: 0;
 }
 
 .step {
