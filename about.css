@@ -849,19 +849,53 @@ nav a:hover::after {
     
     .coach-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
+        padding: 1rem;
     }
-    
-    .coach-card,
+
+    .coach-card {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        aspect-ratio: 1 / 1;
+        min-height: unset;
+        width: 100%;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
     .coach-card.authors,
-    .coach-card.testimonial {
-        grid-column: span 1;
-        grid-row: span 1;
+    .coach-card.testimonial,
+    .coach-card.contact,
+    .coach-card.contact-invite,
+    .coach-card.coming-soon,
+    .coach-card.film-acting {
+        grid-column: 1 / -1 !important;
+        width: 100%;
     }
-    
-    .hero {
-        padding-left: 1rem;
-        padding-right: 1rem;
+
+    .coach-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .coach-card p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .coach-avatar-group {
+        margin-top: auto;
+    }
+
+    .coach-container {
+        padding: 1rem;
+    }
+
+    .coach-header {
+        margin-bottom: 2rem;
+        padding: 0 1rem;
     }
 }
 
